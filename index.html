@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Колёсико — Дизайн и код</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Кастомный курсор -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Модальное окно для документов -->
+    <div id="doc-modal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h3 class="modal-title">Просмотр документа</h3>
+            <div class="modal-placeholder">
+                <img src="src/img/bionic-design-text.png" alt="Текст об органическом дизайне" style="max-width: 100%; border-radius: 8px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Nori -->
+    <div id="nori-modal" class="gallery-modal">
+        <div class="modal-content modal-wide">
+            <span class="modal-close">&times;</span>
+            <h3 class="modal-title">Веб-приложение Nori</h3>
+            <p class="modal-subtitle">Приложение для ухода за растениями</p>
+            
+            <div class="carousel">
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        <div class="carousel-slide"><img src="src/img/nori-promo-1.jpg" alt="Nori 1"></div>
+                        <div class="carousel-slide"><img src="src/img/nori-promo-2.jpg" alt="Nori 2"></div>
+                        <div class="carousel-slide"><img src="src/img/nori-promo-3.jpg" alt="Nori 3"></div>
+                        <div class="carousel-slide"><img src="src/img/nori-promo-4.jpg" alt="Nori 4"></div>
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-prev" aria-label="Назад">‹</button>
+                <button class="carousel-btn carousel-next" aria-label="Вперёд">›</button>
+                <div class="carousel-dots"></div>
+            </div>
+
+            <div class="gallery-links">
+                <a href="https://example.com" class="btn-link" target="_blank">Промосайт →</a>
+                <a href="https://github.com/KoleSSSo" class="btn-link" target="_blank">GitHub →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Фронтир -->
+    <div id="frontir-modal" class="gallery-modal">
+        <div class="modal-content modal-wide">
+            <span class="modal-close">&times;</span>
+            <h3 class="modal-title">Сайт для антикафе «Фронтир»</h3>
+            <p class="modal-subtitle">Веб-дизайн для пространства</p>
+            
+            <div class="carousel">
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        <div class="carousel-slide"><img src="src/img/frontir-1.png" alt="Фронтир 1"></div>
+                        <div class="carousel-slide"><img src="src/img/frontir-2.png" alt="Фронтир 2"></div>
+                        <div class="carousel-slide"><img src="src/img/frontir-3.png" alt="Фронтир 3"></div>
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-prev" aria-label="Назад">‹</button>
+                <button class="carousel-btn carousel-next" aria-label="Вперёд">›</button>
+                <div class="carousel-dots"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Flamy -->
+    <div id="flamy-modal" class="gallery-modal">
+        <div class="modal-content modal-wide">
+            <span class="modal-close">&times;</span>
+            <h3 class="modal-title">Flamy</h3>
+            <p class="modal-subtitle">Прототип 3D-игры в Blender</p>
+            
+            <div class="carousel">
+                <div class="carousel-wrapper">
+                    <div class="carousel-track">
+                        <div class="carousel-slide"><img src="src/img/Flamy-2.jpg" alt="Flamy 1"></div>
+                        <div class="carousel-slide"><img src="src/img/Flamy-3.jpg" alt="Flamy 2"></div>
+                        <div class="carousel-slide"><img src="src/img/Flamy-1.jpg" alt="Flamy 3"></div>
+                    </div>
+                </div>
+                <button class="carousel-btn carousel-prev" aria-label="Назад">‹</button>
+                <button class="carousel-btn carousel-next" aria-label="Вперёд">›</button>
+                <div class="carousel-dots"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- НОВЫЙ БЛОК: Lightbox для полного просмотра изображений -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" aria-label="Закрыть">&times;</button>
+        <div class="lightbox-backdrop"></div>
+        <img class="lightbox-img" src="" alt="Полный просмотр">
+    </div>
+
+    <nav class="nav">
+        <div class="nav-left">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Сменить тему">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            <div class="nav-logo">Колёсико</div>
+        </div>
+        <div class="nav-switch">
+            <button class="nav-btn active" data-theme="design">Дизайн</button>
+            <button class="nav-btn" data-theme="code">Код</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="container hero-inner">
+            <div class="hero-photo">
+                <div class="photo-frame">
+                    <img src="src/img/kolessso_ava.jpg" alt="Ирина Колесникова">
+                </div>
+            </div>
+            <div class="hero-text">
+                <p class="hero-eyebrow">Мой ник - Колёсико</p>
+                <!-- ПРАВКА 1: Раздельные классы для независимого выделения -->
+                <h1 class="hero-title">
+                    Изучаю <span class="highlight-design">дизайн</span><br>
+                    и <span class="highlight-code">программирование</span>.
+                </h1>
+                <p class="hero-subtitle">
+                    Училась робототехнике в НГУ, сейчас заканчиваю Прикладную информатику в дизайне в СПбГУПТД. 
+                    Переключайся между разделами сверху.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="marquee">
+        <div class="marquee-track">
+            <span>WEB DESIGN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GRAPHIC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATA SCIENCE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FRONT END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BACK END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARTIFICIAL INTELLIGENCE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span>WEB DESIGN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GRAPHIC&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DATA SCIENCE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FRONT END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BACK END&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARTIFICIAL INTELLIGENCE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </div>
+
+    <!-- ==================== ДИЗАЙН ==================== -->
+    <div class="page" id="page-design">
+
+        <section class="section">
+            <div class="container">
+                <div class="section-label">01 / Инструменты</div>
+                <h2 class="section-title">Чем работаю</h2>
+                
+                <div class="bento-grid">
+                    <div class="bento-item bento-large">
+                        <div class="bento-content">
+                            <span class="bento-num">01</span>
+                            <h4>Adobe Photoshop</h4>
+                            <p>Обработка фото / ретушь / графический дизайн</p>
+                            <span class="exp-badge">9 лет</span>
+                        </div>
+                    </div>
+                    <div class="bento-item">
+                        <div class="bento-content">
+                            <span class="bento-num">02</span>
+                            <h4>Figma</h4>
+                            <p>UI/UX / прототипы / дизайн-системы</p>
+                            <span class="exp-badge">4 года</span>
+                        </div>
+                    </div>
+                    <div class="bento-item">
+                        <div class="bento-content">
+                            <span class="bento-num">03</span>
+                            <h4>Illustrator</h4>
+                            <p>Вектор / логотипы / иллюстрации</p>
+                            <span class="exp-badge">4 года</span>
+                        </div>
+                    </div>
+                    <div class="bento-item">
+                        <div class="bento-content">
+                            <span class="bento-num">04</span>
+                            <h4>After Effects</h4>
+                            <p>Моушн-дизайн</p>
+                            <span class="exp-badge">3 года</span>
+                        </div>
+                    </div>
+                    <div class="bento-item">
+                        <div class="bento-content">
+                            <span class="bento-num">05</span>
+                            <h4>Premiere Pro</h4>
+                            <p>Монтаж видео</p>
+                            <span class="exp-badge">2 года</span>
+                        </div>
+                    </div>
+                    <div class="bento-item bento-large">
+                        <div class="bento-content">
+                            <span class="bento-num">06</span>
+                            <h4>InDesign</h4>
+                            <p>Вёрстка печатных материалов / буклеты / журналы</p>
+                            <span class="exp-badge">2 года</span>
+                        </div>
+                    </div>
+                    <div class="bento-item">
+                        <div class="bento-content">
+                            <span class="bento-num">06</span>
+                            <h4>Blender</h4>
+                            <p>3D-моделирование / визуализация / прототипы компьютерных игр / анимация </p>
+                            <span class="exp-badge">2 года</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-label">02 / Образование</div>
+                <h2 class="section-title">Образование</h2>
+                
+                <div class="edu-list">
+                    <div class="edu-item">
+                        <span class="edu-year">2022 - н.в.</span>
+                        <div class="edu-main">
+                            <h4>СПбГУПТД</h4>
+                            <p>Прикладная информатика в дизайне, 4 курс</p>
+                        </div>
+                        <span class="edu-flag flag-progress">в процессе</span>
+                    </div>
+                    <div class="edu-item">
+                        <span class="edu-year">2020 - 2022</span>
+                        <div class="edu-main">
+                            <h4>НГУ</h4>
+                            <p>Мехатроника и робототехника, 2 курса</p>
+                        </div>
+                        <span class="edu-flag flag-transfer">перевод</span>
+                    </div>
+                    <div class="edu-item">
+                        <span class="edu-year">2025</span>
+                        <div class="edu-main">
+                            <h4>Научная работа</h4>
+                            <p>Бионический дизайн</p>
+                            <a href="#" class="doc-link">документ</a>
+                        </div>
+                        <span class="edu-flag flag-progress">в процессе</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-label">03 / Работы</div>
+                <h2 class="section-title">Избранные проекты</h2>
+                
+                <div class="portfolio-grid">
+                    <!-- Карточка 1: Добавлен style с фоновой картинкой -->
+                    <div class="portfolio-card portfolio-card-large modal-trigger" data-target="nori-modal" style="background-image: url('src/img/NoriCover.jpg');">
+                        <div class="portfolio-content">
+                            <span class="portfolio-num">01</span>
+                            <h4>Веб-приложение Nori</h4>
+                            <p>Приложение для ухода за растениями</p>
+                        </div>
+                    </div>
+                    <!-- Карточка 2: Добавь свою картинку в url('...') -->
+                    <div class="portfolio-card modal-trigger" data-target="frontir-modal" style="background-image: url('src/img/frontir-ccover.jpg');">
+                        <div class="portfolio-content">
+                            <span class="portfolio-num">02</span>
+                            <h4>Антикафе «Фронтир»</h4>
+                            <p>Сайт для пространства</p>
+                        </div>
+                    </div>
+                    <!-- Карточка 3: Добавь свою картинку в url('...') -->
+                    <div class="portfolio-card modal-trigger" data-target="flamy-modal" style="background-image: url('src/img/Flamy-2.jpg');">
+                        <div class="portfolio-content">
+                            <span class="portfolio-num">03</span>
+                            <h4>Flamy</h4>
+                            <p>Прототип 3D-игры в Blender</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- ПРАВКА: Pinterest-сетка без ручных размеров -->
+        <section class="section">
+            <div class="container">
+                <div class="section-label">04 / Другие работы</div>
+                <h2 class="section-title">Последние работы</h2>
+                
+                <div class="mosaic-grid">
+                    <!-- Просто добавляй сюда div с картинкой любого размера -->
+                    <div class="mosaic-item lightbox-trigger"><img src="src\img\kolesssso-ex-2.png" alt="Работа 1"></div>
+                    <div class="mosaic-item lightbox-trigger"><img src="src\img\kolesssso-ex-6.jpg" alt="Работа 4"></div>
+                    <div class="mosaic-item lightbox-trigger"><img src="src\img\kolesssso-ex-1.png" alt="Работа 2"></div>
+                    <div class="mosaic-item lightbox-trigger"><img src="src\img\kolesssso-ex-3.jpg" alt="Работа 6"></div>
+                    <div class="mosaic-item lightbox-trigger"><img src="src\img\kolesssso-ex-9.jpg" alt="Работа 5"></div>
+                    <div class="mosaic-item lightbox-trigger"><img src="src\img\kolesssso-ex-8.jpg" alt="Работа 7"></div>
+                    <div class="mosaic-item lightbox-trigger"><img src="src\img\kolesssso-ex-4.png" alt="Работа 8"></div>
+                    <div class="mosaic-item lightbox-trigger"><img src="src\img\kolesssso-ex-5.jpg" alt="Работа 8"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- ==================== КОД ==================== -->
+    <div class="page hidden" id="page-code">
+
+        <section class="section">
+            <div class="container">
+                <div class="section-label">01 / Языки и технологии</div>
+                <h2 class="section-title">Что умею</h2>
+                
+                <div class="skills-bars">
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <h4>Python</h4>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="80"></div>
+                        </div>
+                        <p>Основной язык. ML / Data Science / Backend.</p>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <h4>C / C++</h4>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="60"></div>
+                        </div>
+                        <p>Базовый уровень. Понимание работы алгоритмов / работа с памятью / ООП.</p>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <h4>HTML / CSS</h4>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="40"></div>
+                        </div>
+                        <p>Вёрстка, адаптивные макеты.</p>
+                    </div>
+                    <div class="skill-bar-item">
+                        <div class="skill-bar-header">
+                            <h4>SQL</h4>
+                        </div>
+                        <div class="skill-bar-track">
+                            <div class="skill-bar-fill" data-width="60"></div>
+                        </div>
+                        <p>Запросы, работа с базами данных.</p>
+                    </div>
+                </div>
+
+                <div class="soft-skills">
+                    <h3 class="soft-title">Инструменты</h3>
+                    <div class="tags">
+                        <span class="tag">Linux</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Arcade</span>
+                        <span class="tag">Pandas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-label">02 / Образование</div>
+                <h2 class="section-title">Образование</h2>
+                
+                <div class="edu-list">
+                    <div class="edu-item">
+                        <span class="edu-year">2022 - н.в.</span>
+                        <div class="edu-main">
+                            <h4>СПбГУПТД</h4>
+                            <p>Прикладная информатика в дизайне, 4 курс</p>
+                        </div>
+                        <span class="edu-flag flag-progress">в процессе</span>
+                    </div>
+                    <div class="edu-item">
+                        <span class="edu-year">2020 - 2022</span>
+                        <div class="edu-main">
+                            <h4>НГУ</h4>
+                            <p>Мехатроника и робототехника, 2 курса</p>
+                        </div>
+                        <span class="edu-flag flag-transfer">перевод</span>
+                    </div>
+                    <div class="edu-item">
+                        <span class="edu-year">2025</span>
+                        <div class="edu-main">
+                            <h4>Летняя школа ИИ, ПетрГУ</h4>
+                            <p>Интенсив по искусственному интеллекту</p>
+                            <a href="#" class="doc-link">документ</a>
+                        </div>
+                        <span class="edu-flag flag-done">окончено</span>
+                    </div>
+                    <div class="edu-item">
+                        <span class="edu-year">2024</span>
+                        <div class="edu-main">
+                            <h4>НГУ</h4>
+                            <p>Курс по Machine Learning и Data Science</p>
+                            <a href="#" class="doc-link">документ</a>
+                        </div>
+                        <span class="edu-flag flag-done">окончено</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-label">03 / Проекты</div>
+                <h2 class="section-title">Что делала</h2>
+                
+                <div class="projects-list">
+                    <div class="project-item">
+                        <div class="project-img">
+                            <!-- ФОТО 2: Скриншот проекта ROS (Путь: assets/project-ros.jpg) -->
+                            <div class="img-placeholder">
+                                <img src="src/img/ROS.jpg" alt="веб приложение для работы с ROS">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-header">
+                                <span class="project-tag">Диплом</span>
+                                <span class="project-status flag-progress">в процессе</span>
+                            </div>
+                            <h3>Веб-приложение для работы с ROS</h3>
+                            <p>Интерфейс для работы с данными из Robot Operating System - визуализация, анализ, управление.</p>
+                            <div class="project-footer">
+                                <div class="project-stack">
+                                    <span>Python</span>
+                                    <span>ROS</span>
+                                    <span>Web</span>
+                                    <span>Full Stack</span>
+                                </div>
+                                <a href="https://github.com/KoleSSSo" class="github-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-img">
+                            <!-- ФОТО 3: Скриншот игры Hell is there (Путь: assets/project-game.jpg) -->
+                            <div class="img-placeholder">
+                                <img src="src/img/HellIsThere.jpg" alt="Фон игры Hell is Empty">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-header">
+                                <span class="project-tag">Игра</span>
+                            </div>
+                            <h3>Hell is Empty</h3>
+                            <p>Платформер на Python. Механики, уровни, логика - всё с нуля.</p>
+                            <div class="project-footer">
+                                <div class="project-stack">
+                                    <span>Python</span>
+                                    <span>Arcade</span>
+                                    <span>Gamedev</span>
+                                </div>
+                                <a href="https://github.com/KoleSSSo" class="github-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-img">
+                            <div class="img-placeholder">
+                                <img src="src/img/AuroraOS.jpg" alt="Обложка приложения озвучивания почты AuroraOS">
+                            </div>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-header">
+                                <span class="project-tag">Приложение</span>
+                            </div>
+                            <h3>Голосовое воспроизведение почты для Аврора ОС</h3>
+                            <p>Озвучивание входящих сообщений для отечественной ОС Аврора.</p>
+                            <div class="project-footer">
+                                <div class="project-stack">
+                                    <span>QML</span>
+                                    <span>Aurora OS</span>
+                                    <span>C++</span>
+                                    <span>Linux</span>
+                                </div>
+                                <a href="https://github.com/KoleSSSo" class="github-link">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <h2 class="footer-title">Я <span class="highlight-word">открыта</span> для сотрудничества<span class="dot">.</span></h2>
+            <p class="footer-text">Если вы бы хотели сотрудничать со мной или у вас есть идеи для совместных проектов - свяжитесь со мной.</p>
+            
+            <nav class="footer-links">
+                <a href="https://t.me/koleSSSiko" class="footer-link hoverable">
+                    <span>Telegram</span>
+                    <span class="link-arrow">→</span>
+                </a>
+                <a href="mailto:kolesssiko@yandex.ru" class="footer-link hoverable">
+                    <span>Email</span>
+                    <span class="link-arrow">→</span>
+                </a>
+                <a href="https://github.com/KoleSSSo" class="footer-link hoverable">
+                    <span>GitHub</span>
+                    <span class="link-arrow">→</span>
+                </a>
+            </nav>
+            
+            <div class="copyright">
+                <p>© 2026 Колесникова Ирина</p>
+                <p>создано с использованием ИИ Qwen 3.7 Plus </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
